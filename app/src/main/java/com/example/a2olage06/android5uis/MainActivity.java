@@ -1,5 +1,6 @@
 package com.example.a2olage06.android5uis;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+
+
+import static com.example.a2olage06.android5uis.R.id.fab1;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab1);
+        fab.setOnClickListener (new View.OnClickListener() {
+
+            public void onClick(View view) {
+                new AlertDialog.Builder(MainActivity.this).setPositiveButton("OK", null).
+                        setMessage("The FloatingActionButton was clicked!").show();
+            }
+        });
 
     }
 
@@ -42,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+
     }
 
     class SearchHandler implements SearchView.OnQueryTextListener {
